@@ -12,29 +12,37 @@ public class ListeDArc extends Graph{
 	}
 
 	@Override
-	// Complexité: ?
+	// Complexit?: o(0)
 	protected void ajouterSommet(Airport a) {	
-		//à compléter
-
+		// Aucune structure d'accueil
 	}
 
 	@Override
-	// Complexité: ?
+	// Complexit?: o(1)
 	protected void ajouterArc(Flight f) {
-		//à compléter
+		this.flights.add(f);
 	}
 
 	@Override
-	// Complexité: ?
+	// Complexit?: o(n)
 	public Set<Flight> arcsSortants(Airport a) {
-		//à compléter
-		return null;
+		Set<Flight> result = new HashSet<>();
+		for(Flight f: this.flights){
+			if(f.getSource().equals(a)){
+				result.add(f);
+			}
+		}
+		return result;
 	}
 
 	@Override
-	// Complexité: ?
+	// Complexit?: o(n)
 	public boolean sontAdjacents(Airport a1, Airport a2) {
-		// à compléter
+		for(Flight f : this.flights){
+			if(f.getSource().equals(a1) && f.getDestination().equals(a2)){
+				return true;
+			}
+		}
 		return false;
 	}
 
